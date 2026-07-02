@@ -1,3 +1,10 @@
+const recipes = [];
+
+const recipe1 = {
+  name: "Spaghetti Carbonara",
+  ingredients: ["spaghetti", "Parmesan cheese", "pancetta", "black pepper"],
+};
+
 const exampleObject = {
   name: "John Doe",
   age: 30,
