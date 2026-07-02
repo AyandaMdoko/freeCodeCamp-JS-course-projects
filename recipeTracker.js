@@ -25,9 +25,10 @@ const recipe3 = {
 };
 
 const recipe1Name = recipe1.name;
-const recipe2CookingTime = recipe2.cookingTime;
-const recipe3Ingredients = recipe3.ingredients;
+console.log(recipe1Name);
 
-onsole.log(recipe1Name);
+const recipe2CookingTime = recipe2.cookingTime;
 console.log(recipe2CookingTime);
-console.log(recipe3Ingredients);
+
+const recipe3Ingredients = recipe3.ingredients;
+console.log(recipe3Ingredients);    
