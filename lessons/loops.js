@@ -1,3 +1,5 @@
+// for loops
+
 // for (variable of iterable) {
 //   // code block to be executed
 // }
@@ -83,8 +85,24 @@
 
 //do while loops
 
-let counter = 0;
-do {
-  console.log(counter);
-  counter++;
-} while (counter < 10); 
+// let counter = 0;
+// do {
+//   console.log(counter);
+//   counter++;
+// } while (counter < 10); 
+
+//break and continue statements
+
+for (let i = 0; i < 10; i++) {
+  if (i === 5) {
+    break;
+  }
+  console.log(i);
+}
+
+for (let i = 0; i < 10; i++) {
+  if (i === 5) {
+    continue; // skip the rest of the loop when i is 5
+  }
+  console.log(i);
+}
