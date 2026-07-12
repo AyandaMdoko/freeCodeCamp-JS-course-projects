@@ -100,9 +100,11 @@
 //   console.log(i);
 // }
 
+
 // for (let i = 0; i < 10; i++) {
 //   if (i === 5) {
 //     continue; // skip the rest of the loop when i is 5
 //   }
 //   console.log(i);
 // }
+
