@@ -46,3 +46,6 @@ console.log(`Punctuation Count: ${punctuationCount}`);
 function getWordCount(sentence) {
   return sentence.trim().split(/\s+/).filter(word => word.length > 0).length;
 }
+
+const wordCount = getWordCount("I love freeCodeCamp");
+console.log(`Word Count: ${wordCount}`);
