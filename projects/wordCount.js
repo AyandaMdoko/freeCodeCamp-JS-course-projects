@@ -1,3 +1,4 @@
+// This function takes a string as input and prints each character on a new line.
 function printCharacters(str) {
   for (const char of str) {
     console.log(char);
@@ -5,6 +6,7 @@ function printCharacters(str) {
 }
 printCharacters("hello");
 
+// This function takes an array of words and a match word as input, and returns the count of how many times the match word appears in the array.
 function getMatchedWordCount(sentence, match) {
   let count = 0;
   
