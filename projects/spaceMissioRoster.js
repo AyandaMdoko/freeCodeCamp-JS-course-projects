@@ -36,3 +36,14 @@ const remainingCrew = [
 for (const astronaut of remainingCrew) {
   addCrewMember(squad, astronaut);
 }
+
+function swapCrewMembers(crew, fromIndex, toIndex) {
+  if (fromIndex < 0 || fromIndex >= crew.length || toIndex < 0 || toIndex >= crew.length) {
+    console.log("Invalid crew indices");
+    return;
+  }
+
+  const temp = crew[fromIndex];
+  crew[fromIndex] = crew[toIndex];
+  crew[toIndex] = temp;
+}
