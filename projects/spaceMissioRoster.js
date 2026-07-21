@@ -1,5 +1,5 @@
 const squad = [];
-
+// Define the first astronaut object
 const firstAstronaut = {
   id: 1,
   name: "Andy",
@@ -8,6 +8,7 @@ const firstAstronaut = {
   priority: 3
 };
 
+// Function to add a crew member to the squad
 function addCrewMember(crew, astronaut) {
   for (let i = 0; i < crew.length; i++) {
     if (crew[i].id === astronaut.id) {
@@ -21,6 +22,7 @@ function addCrewMember(crew, astronaut) {
 
 addCrewMember(squad, firstAstronaut);
 
+// Add remaining astronauts to the squad
 const remainingCrew = [
   { id: 2, name: "Bart", role: "Pilot", isEVAEligible: false, priority: 8 },
   { id: 3, name: "Caroline", role: "Engineer", isEVAEligible: true, priority: 4 },
@@ -37,12 +39,14 @@ for (const astronaut of remainingCrew) {
   addCrewMember(squad, astronaut);
 }
 
+// Function to swap crew members at specified indices
 function swapCrewMembers(crew, fromIndex, toIndex) {
   if (fromIndex < 0 || fromIndex >= crew.length || toIndex < 0 || toIndex >= crew.length) {
     console.log("Invalid crew indices");
     return;
   }
 
+  // Create a copy of the crew array to avoid mutating the original
   const updatedCrew = crew.slice();
   updatedCrew[fromIndex] = updatedCrew.splice(toIndex, 1, updatedCrew[fromIndex])[0];
 
@@ -52,6 +56,23 @@ function swapCrewMembers(crew, fromIndex, toIndex) {
 
 const updatedSquad = swapCrewMembers(squad, 2, 5);
 
+// Function to sort crew members by priority in descending order
+function sortByPriorityDescending(crew) {
+  for (let i = 0; i < crew.length - 1; i++) {
+    for (let j = 0; j < crew.length - 1 - i; j++) {
+      if (crew[j].priority < crew[j + 1].priority) {
+        const temp = crew[j];
+        crew[j] = crew[j + 1];
+        crew[j + 1] = temp;
+      }
+    }
+  }
+}
+
+// Sort the squad by priority
+sortByPriorityDescending(squad);
+
+// Function to get EVA-ready crew members
 function getEVAReadyCrew(crew) {
   const eligible = [];
 
