@@ -94,7 +94,16 @@ function chunkCrew(crew, size) {
     console.log("Chunk size must be >= 1");
     return;
   }
+
+  const chunks = [];
+
+  for (let i = 0; i < crew.length; i += size) {
+    chunks.push(crew.slice(i, i + size));
+  }
+
+  return chunks;
 }
 
+const EVAChunks = chunkCrew(EVAReadySquad, 3);
 
 
