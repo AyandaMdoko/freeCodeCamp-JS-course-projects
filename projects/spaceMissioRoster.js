@@ -43,7 +43,23 @@ function swapCrewMembers(crew, fromIndex, toIndex) {
     return;
   }
 
-  const temp = crew[fromIndex];
-  crew[fromIndex] = crew[toIndex];
-  crew[toIndex] = temp;
+  const updatedCrew = crew.slice();
+  updatedCrew[fromIndex] = updatedCrew.splice(toIndex, 1, updatedCrew[fromIndex])[0];
+
+
+  return updatedCrew;
+}
+
+const updatedSquad = swapCrewMembers(squad, 2, 5);
+
+function getEVAReadyCrew(crew) {
+  const eligible = [];
+
+  for (const astronaut of crew) {
+    if (astronaut.isEVAEligible) {
+      eligible.push(astronaut);
+    }
+  }
+
+  return eligible;
 }

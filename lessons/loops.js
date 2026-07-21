@@ -108,3 +108,13 @@
 //   console.log(i);
 // }
 
+
+// swap elements without mutating the original
+
+//Here is an example:
+
+const originalArray = [12, 97, 68, 55];
+const copyArray = originalArray.slice();
+copyArray[1] = copyArray.splice(3, 1, copyArray[1])[0];
+console.log(copyArray); // [12, 55, 68, 97]
+
