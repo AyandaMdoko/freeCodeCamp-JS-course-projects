@@ -80,7 +80,21 @@ function getEVAReadyCrew(crew) {
     if (astronaut.isEVAEligible) {
       eligible.push(astronaut);
     }
+    sortByPriorityDescending(eligible);
   }
 
   return eligible;
 }
+
+const EVAReadySquad = getEVAReadyCrew(updatedSquad);
+
+// Function to chunk the crew array into smaller arrays of given size
+function chunkCrew(crew, size) {
+  if (size < 1) {
+    console.log("Chunk size must be >= 1");
+    return;
+  }
+}
+
+
+
