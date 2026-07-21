@@ -118,3 +118,20 @@ const copyArray = originalArray.slice();
 copyArray[1] = copyArray.splice(3, 1, copyArray[1])[0];
 console.log(copyArray); // [12, 55, 68, 97]
 
+//sorting an array using bubble sort algorithm
+
+//EXAMPLE:
+// Outer loop: controls how many passes we make
+for (let i = 0; i < crew.length - 1; i++) {
+  // Inner loop: compares neighboring items
+  for (let j = 0; j < crew.length - 1 - i; j++) {
+    // If current member has lower priority than next, swap
+    if (crew[j].priority < crew[j + 1].priority) {
+      // Using a temp variable for the swap
+        const temp = crew[j];
+        crew[j] = crew[j + 1];
+        crew[j + 1] = temp;
+    }
+  }
+}
+
