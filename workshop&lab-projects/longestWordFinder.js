@@ -1,3 +1,4 @@
+// Function to find the length of the longest word in a string
 function findLongestWordLength(str) {
   const words = str.split(' ');
   let maxLength = 0;
@@ -13,3 +14,4 @@ function findLongestWordLength(str) {
 
 console.log(findLongestWordLength("The quick brown fox jumped over the lazy dog"));
 console.log(findLongestWordLength("May the force be with you"));
+
