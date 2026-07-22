@@ -22,9 +22,46 @@ const rawCatalogCards = [
 ];
 
 function parseCard(rawString) {
-  return rawString.split("|");
+  const parts = rawString.split("|");
+  const trimmedParts = [];
+  for (let i = 0; i < parts.length; i++) {
+    trimmedParts.push(parts[i].trim());
+  }
+  const title = trimmedParts[0];
+  const author = trimmedParts[1];
+  const year = trimmedParts[2];
+  const location = trimmedParts[3];
+  return {
+    title: title || "Unknown",
+    author: author || "Unknown",
+    year: year ? parseInt(year) : "Unknown",
+    location: location || "Unknown"
+  };
 }
 
+function parseCatalog(rawCards) {
+  const catalog = [];
+  for (let i = 0; i < rawCards.length; i++) {
+    catalog.push(parseCard(rawCards[i]));
+  }
+  return catalog;
+}
 
-const cardResult = parseCard(rawCatalogCards[2]);
-console.log(cardResult);
+const catalog = parseCatalog(rawCatalogCards);
+
+function findByAuthor(catalog, author) {
+  const searchTerm = author.toLowerCase();
+  const results = [];
+  for (let i = 0; i < catalog.length; i++) {
+    if (catalog[i].author.toLowerCase().includes(searchTerm)) {
+      results.push(catalog[i]);
+    }
+  }
+  return results;
+}
+
+// const kingBooks = findByAuthor(catalog, "king");
+// console.log(kingBooks.length);
+// for (let i = 0; i < kingBooks.length; i++) {
+//   console.log(`${kingBooks[i].title} (${kingBooks[i].year})`);
+// }
