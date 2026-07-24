@@ -12,6 +12,7 @@ const nightGates = [
   { id: "West", capacity: 3, queue: [5, 2, 1, 4] },
 ];
 
+// This function initializes the throughput summary for each gate.
 function initializeThroughput(gates) {
   const summary = {};
   for (const gate of gates) {
@@ -20,6 +21,7 @@ function initializeThroughput(gates) {
   return summary;
 }
 
+// This function processes the flow of attendees through a gate for a given tick index.
 function processGateFlow(gate, tickIndex) {
   let currentTickQueue = gate.queue[tickIndex];
   let processed = 0;
@@ -33,6 +35,7 @@ function processGateFlow(gate, tickIndex) {
   };
 }
 
+// This function reroutes overflow attendees to the next gate in the list.
 function rerouteOverflow(gates, currentGate, tickIndex, overflowAmount) {
   const currentIndex = gates.indexOf(currentGate);
   const nextGateIndex = (currentIndex + 1) % gates.length;
@@ -43,6 +46,7 @@ function rerouteOverflow(gates, currentGate, tickIndex, overflowAmount) {
   );
 }
 
+// This function handles the processing of a gate at a specific tick index, updating the throughput summary and rerouting overflow if necessary.
 function handleGateAtTick(gates, gate, tickIndex, throughputSummary) {
   console.log("\nProcessing " + gate.id + "...");
   console.log(
@@ -59,6 +63,7 @@ function handleGateAtTick(gates, gate, tickIndex, throughputSummary) {
   }
 }
 
+// This function prints the summary of attendees processed through each gate.
 function printSummary(summary) {
   console.log("\nThroughput Summary");
   for (const gateId in summary) {
@@ -69,6 +74,7 @@ function printSummary(summary) {
   }
 }
 
+// This function simulates the festival for a given set of gates and time block, processing each tick and printing the summary at the end.
 function simulateFestival(gates, timeBlock) {
   console.log("\n" + timeBlock + " Simulation");
   const throughputSummary = initializeThroughput(gates);
