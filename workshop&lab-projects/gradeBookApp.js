@@ -1,3 +1,8 @@
+
+// Grade Book Application
+
+// This application calculates the average score of a class, determines the letter grade for a student's score,
+// and checks if the student has passed or failed the course.
 function getAverage(scores) {
   const sum = scores.reduce((total, score) => total + score, 0);
   return sum / scores.length;
