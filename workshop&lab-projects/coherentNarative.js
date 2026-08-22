@@ -26,10 +26,13 @@ const shuffledFragments = [
   { id: 18, text: "the Tortoise was near the goal." },
 ];
 
+//1. Compact the Fragments
+//Function thatfilter out the empty slots (undefined) and log a message if any were removed
 function compactFragments(arr) {
   const result = [];
   let hasUndefined = false;
-  
+
+  // Loop through the array and filter out undefined elements
   for (let i = 0; i < arr.length; i++) {
     if (arr[i] !== undefined) {
       result.push(arr[i]);
@@ -46,10 +49,14 @@ function compactFragments(arr) {
 
 const compactedShuffledFragments = compactFragments(shuffledFragments);
 
+
+//2. Sort the Fragments
+//Function that sorts the fragments by their id in ascending order and log a message if any were sorted
 function sortFragments(arr) {
   const result = [...arr]; // Copy array to prevent mutation
   const n = result.length;
   
+  //
   for (let i = 0; i < n - 1; i++) {
     for (let j = 0; j < n - i - 1; j++) {
       if (result[j].id > result[j + 1].id) {
@@ -65,11 +72,12 @@ function sortFragments(arr) {
 
 const sortedFragments = sortFragments(compactedShuffledFragments);
 
-
+//3. Deduplicate the Fragments
 function dedupeFragments(arr) {
   const result = [];
   const seenIds = {};
-  
+
+  // Loop through the array and add unique fragments to the result
   for (let i = 0; i < arr.length; i++) {
     const currentId = arr[i].id;
     if (!seenIds[currentId]) {
@@ -84,7 +92,7 @@ function dedupeFragments(arr) {
 
 const dedupedFragments = dedupeFragments(sortedFragments);
 
-
+//4. Fill in Missing Fragments
 function fillMissingFragments(arr) {
   if (arr.length === 0) return [];
   
@@ -92,6 +100,7 @@ function fillMissingFragments(arr) {
   let currentId = arr[0].id;
   let i = 0;
 
+  // Loop through the array and fill in missing fragments
   while (i < arr.length) {
     if (arr[i].id === currentId) {
       result.push(arr[i]);
@@ -107,6 +116,7 @@ function fillMissingFragments(arr) {
 
 const filledFragments = fillMissingFragments(dedupedFragments);
 
+//5. Assemble the Story
 function assembleStory(arr) {
   let story = "";
   for (let i = 0; i < arr.length; i++) {
